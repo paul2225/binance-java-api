@@ -30,12 +30,12 @@ public class Deposit {
    */
   private String coin;
   private String network;
-  private String status;
+  private int status;
   private String address;
   private String addressTag;
   private String txId;
-  private String insertTime;
-  private String transferType;
+  private long insertTime;
+  private int transferType;
   private String confirmTimes;
 
   public String getAmount() {
@@ -62,11 +62,11 @@ public class Deposit {
     this.network = network;
   }
 
-  public String getStatus() {
+  public int getStatus() {
     return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(int status) {
     this.status = status;
   }
 
@@ -94,19 +94,19 @@ public class Deposit {
     this.txId = txId;
   }
 
-  public String getInsertTime() {
+  public long getInsertTime() {
     return insertTime;
   }
 
-  public void setInsertTime(String insertTime) {
+  public void setInsertTime(long insertTime) {
     this.insertTime = insertTime;
   }
 
-  public String getTransferType() {
+  public int getTransferType() {
     return transferType;
   }
 
-  public void setTransferType(String transferType) {
+  public void setTransferType(int transferType) {
     this.transferType = transferType;
   }
 
