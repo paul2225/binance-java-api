@@ -15,7 +15,7 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DepositHistory {
 
-  @JsonProperty("depositList")
+  //@JsonProperty("depositList")
   private List<Deposit> depositList;
 
   public List<Deposit> getDepositList() {
