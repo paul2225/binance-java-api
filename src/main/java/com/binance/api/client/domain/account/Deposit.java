@@ -122,10 +122,14 @@ public class Deposit {
   public String toString() {
     return new ToStringBuilder(this, BinanceApiConstants.TO_STRING_BUILDER_STYLE)
         .append("amount", amount)
-        .append("asset", coin)
+        .append("coin", coin)
+      .append("network", network)
+      .append("status", status)
+      .append("address", address)
+        .append("addressTag", addressTag)
         .append("insertTime", insertTime)
-        .append("txId", txId)
-        .append("status", status)
+        .append("transferType", transferType)
+      .append("confirmTimes", confirmTimes)
         .toString();
   }
 }
