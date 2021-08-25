@@ -26,6 +26,14 @@ public class BinanceApiRestClientImpl implements BinanceApiRestClient {
 	public BinanceApiRestClientImpl(String apiKey, String secret) {
 		binanceApiService = createService(BinanceApiService.class, apiKey, secret);
 	}
+	
+	private long getTimeStamp() {
+    		long start = System.currentTimeMillis();
+    		long serverTime = this.getServerTime();
+    		long end = System.currentTimeMillis();
+    		long gap = end - start;
+    		return serverTime + gap;
+	}
 
 	// General endpoints
 
@@ -202,7 +210,7 @@ public class BinanceApiRestClientImpl implements BinanceApiRestClient {
 
 	@Override
 	public Account getAccount() {
-		return getAccount(BinanceApiConstants.DEFAULT_RECEIVING_WINDOW, System.currentTimeMillis());
+		return getAccount(BinanceApiConstants.DEFAULT_RECEIVING_WINDOW, getTimeStamp());
 	}
 
 	@Override
@@ -213,53 +221,53 @@ public class BinanceApiRestClientImpl implements BinanceApiRestClient {
 	@Override
 	public List<Trade> getMyTrades(String symbol, Integer limit) {
 		return getMyTrades(symbol, limit, null, BinanceApiConstants.DEFAULT_RECEIVING_WINDOW,
-				System.currentTimeMillis());
+				getTimeStamp());
 	}
 
 	@Override
 	public List<Trade> getMyTrades(String symbol) {
 		return getMyTrades(symbol, null, null, BinanceApiConstants.DEFAULT_RECEIVING_WINDOW,
-				System.currentTimeMillis());
+				getTimeStamp());
 	}
 
 	@Override
 	public List<Trade> getMyTrades(String symbol, Long fromId) {
 		return getMyTrades(symbol, null, fromId, BinanceApiConstants.DEFAULT_RECEIVING_WINDOW,
-				System.currentTimeMillis());
+				getTimeStamp());
 	}
 
 	@Override
 	public WithdrawResult withdraw(String asset, String address, String amount, String name, String addressTag) {
 		return executeSync(binanceApiService.withdraw(asset, address, amount, name, addressTag,
-				BinanceApiConstants.DEFAULT_RECEIVING_WINDOW, System.currentTimeMillis()));
+				BinanceApiConstants.DEFAULT_RECEIVING_WINDOW, getTimeStamp()));
 	}
 
 	@Override
 	public DustTransferResponse dustTranfer(List<String> asset) {
-		return executeSync(binanceApiService.dustTransfer(asset, BinanceApiConstants.DEFAULT_RECEIVING_WINDOW, System.currentTimeMillis()));
+		return executeSync(binanceApiService.dustTransfer(asset, BinanceApiConstants.DEFAULT_RECEIVING_WINDOW, getTimeStamp()));
 	}
 
 	@Override
 	public DepositHistory getDepositHistory(String asset) {
 		return executeSync(binanceApiService.getDepositHistory(asset, BinanceApiConstants.DEFAULT_RECEIVING_WINDOW,
-				System.currentTimeMillis()));
+				getTimeStamp()));
 	}
 
 	@Override
 	public WithdrawHistory getWithdrawHistory(String asset) {
 		return executeSync(binanceApiService.getWithdrawHistory(asset, BinanceApiConstants.DEFAULT_RECEIVING_WINDOW,
-				System.currentTimeMillis()));
+				getTimeStamp()));
 	}
 
 	@Override
 	public List<SubAccountTransfer> getSubAccountTransfers() {
-		return executeSync(binanceApiService.getSubAccountTransfers(System.currentTimeMillis()));
+		return executeSync(binanceApiService.getSubAccountTransfers(getTimeStamp()));
 	}
 
 	@Override
 	public DepositAddress getDepositAddress(String asset) {
 		return executeSync(binanceApiService.getDepositAddress(asset, BinanceApiConstants.DEFAULT_RECEIVING_WINDOW,
-				System.currentTimeMillis()));
+				getTimeStamp()));
 	}
 
 	// User stream endpoints
