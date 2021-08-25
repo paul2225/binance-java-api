@@ -158,7 +158,7 @@ public interface BinanceApiService {
 
 
     @Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER)
-    @GET("/sapi/v1/depositHistory.html")
+    @GET("/sapi/v1/capital/deposit/hisrec")
     Call<DepositHistory> getDepositHistory(@Query("asset") String asset, @Query("recvWindow") Long recvWindow, @Query("timestamp") Long timestamp);
 
     @Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER)
