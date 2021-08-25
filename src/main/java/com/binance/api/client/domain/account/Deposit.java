@@ -144,7 +144,7 @@ public class Deposit {
 
   @Override
   public String toString() {
-    return new ToStringBuilder()
+    return new ToStringBuilder(this, BinanceApiConstants.TO_STRING_BUILDER_STYLE)
         .append("amount", amount)
         .append("asset", coin)
         .append("insertTime", insertTime)
