@@ -152,9 +152,17 @@ public interface BinanceApiService {
                                   @Query("recvWindow") Long recvWindow, @Query("timestamp") Long timestamp);
 
     @Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER)
-    @POST("/wapi/v3/withdraw.html")
-    Call<WithdrawResult> withdraw(@Query("asset") String asset, @Query("address") String address, @Query("amount") String amount, @Query("name") String name, @Query("addressTag") String addressTag,
-                                  @Query("recvWindow") Long recvWindow, @Query("timestamp") Long timestamp);
+    @POST("/sapi/v1/capital/withdraw/apply")
+    Call<WithdrawResult> withdraw(@Query("coin") String coin, 
+                                  @Query("withdrawOrderId") String withdrawOrderId,
+                                  @Query("network") String network, 
+                                  @Query("address") String address, 
+                                  @Query("addressTag") String addressTag,
+                                  @Query("amount") String amount,
+                                  @Query("transactionFeeFlag") Boolean transactionFeeFlag,
+                                 @Query("name") String name,
+                                 @Query("recvWindow") Long recvWindow,
+                                 @Query("timestamp") Long timestamp);
 
 
     @Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER)
