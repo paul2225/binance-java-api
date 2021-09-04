@@ -211,7 +211,8 @@ public class BinanceApiAsyncRestClientImpl implements BinanceApiAsyncRestClient 
 
   @Override
   public void withdraw(String asset, String address, String amount, String name, String addressTag, BinanceApiCallback<WithdrawResult> callback) {
-    binanceApiService.withdraw(asset, address, amount, name, addressTag, BinanceApiConstants.DEFAULT_RECEIVING_WINDOW, System.currentTimeMillis())
+    binanceApiService.withdraw(asset, null, null, address, addressTag, amount, null, name,
+				BinanceApiConstants.DEFAULT_RECEIVING_WINDOW, getTimeStamp())
         .enqueue(new BinanceApiCallbackAdapter<>(callback));
   }
 
