@@ -1,40 +1,28 @@
 package com.binance.api.examples;
 
+import com.binance.api.client.BinanceApiAsyncRestClient;
 import com.binance.api.client.BinanceApiClientFactory;
-import com.binance.api.client.BinanceApiRestClient;
 import com.binance.api.client.domain.account.Account;
-import com.binance.api.client.domain.account.Trade;
-
-import java.util.List;
 
 /**
  * Examples on how to get account information.
  */
-public class AccountEndpointsExample {
+public class AccountEndpointsExampleAsync {
 
   public static void main(String[] args) {
     BinanceApiClientFactory factory = BinanceApiClientFactory.newInstance("YOUR_API_KEY", "YOUR_SECRET");
-    BinanceApiRestClient client = factory.newRestClient();
+    BinanceApiAsyncRestClient client = factory.newAsyncRestClient();
 
-    // Get account balances
-    Account account = client.getAccount(60_000L, System.currentTimeMillis());
-    System.out.println(account.getBalances());
-    System.out.println(account.getAssetBalance("ETH"));
+    // Get account balances (async)
+    client.getAccount((Account response) -> System.out.println(response.getAssetBalance("ETH")));
 
-    // Get list of trades
-    List<Trade> myTrades = client.getMyTrades("NEOETH");
-    System.out.println(myTrades);
+    // Get list of trades (async)
+    client.getMyTrades("NEOETH", response -> System.out.println(response));
 
-    // Get withdraw history
-    System.out.println(client.getWithdrawHistory("ETH"));
+    // Get deposit history (async)
+    client.getDepositHistory("ETH", response -> System.out.println(response));
 
-    // Get deposit history
-    System.out.println(client.getDepositHistory("ETH"));
-
-    // Get deposit address
-    System.out.println(client.getDepositAddress("ETH"));
-
-    // Withdraw
-    client.withdraw("ETH", "0x123", "0.1", null, null, "bsc");
+    // Withdraw (async)
+    client.withdraw("ETH", "0x123", "0.1", null, null, response -> {});
   }
 }
