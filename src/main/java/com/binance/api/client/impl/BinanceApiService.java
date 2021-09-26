@@ -178,7 +178,7 @@ public interface BinanceApiService {
 
     @Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER)
     @GET("/sapi/v1/capital/withdraw/history")
-    Call<WithdrawHistory> getWithdrawHistory(@Query("coin") String coin,
+    Call<List<Withdraw>> getWithdrawHistory(@Query("coin") String coin,
             @Query("withdrawOrderId") String withdrawOrderId,
             @Query("status") Integer status,
             @Query("offset") Integer offset,
