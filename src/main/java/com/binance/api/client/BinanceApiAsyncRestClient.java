@@ -279,7 +279,7 @@ public interface BinanceApiAsyncRestClient {
    *
    * @param callback the callback that handles the response and returns the withdraw history
    */
-  void getWithdrawHistory(String asset, BinanceApiCallback<WithdrawHistory> callback);
+  void getWithdrawHistory(String asset, Integer status, Long startTime, Long endTime, BinanceApiCallback<WithdrawHistory> callback);
 
   /**
    * Fetch deposit address.
