@@ -177,8 +177,16 @@ public interface BinanceApiService {
                                            @Query("timestamp") Long timestamp);
 
     @Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER)
-    @GET("/wapi/v3/withdrawHistory.html")
-    Call<WithdrawHistory> getWithdrawHistory(@Query("asset") String asset, @Query("recvWindow") Long recvWindow, @Query("timestamp") Long timestamp);
+    @GET("/sapi/v1/capital/withdraw/history")
+    Call<WithdrawHistory> getWithdrawHistory(@Query("coin") String coin,
+            @Query("withdrawOrderId") String withdrawOrderId,
+            @Query("status") Integer status,
+            @Query("offset") Integer offset,
+            @Query("limit") Integer limit,
+            @Query("startTime") Long startTime,
+            @Query("endTime") Long endTime,
+            @Query("recvWindow") Long recvWindow,
+            @Query("timestamp") Long timestamp);
 
     @Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER)
     @GET("/wapi/v3/depositAddress.html")
