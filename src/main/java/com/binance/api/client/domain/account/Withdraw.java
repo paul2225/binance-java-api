@@ -43,7 +43,7 @@ public class Withdraw {
 
     private Integer status;
 
-    private String transactionField;
+    private String transactionFee;
 
     private String confirmNo;
 
@@ -132,12 +132,12 @@ public class Withdraw {
         this.transferType = transferType;
     }
 
-    public String getTransactionField() {
-        return transactionField;
+    public String gettransactionFee() {
+        return transactionFee;
     }
 
-    public void setTransactionField(String transactionField) {
-        this.transactionField = transactionField;
+    public void settransactionFee(String transactionFee) {
+        this.transactionFee = transactionFee;
     }
 
     public String getConfirmNo() {
