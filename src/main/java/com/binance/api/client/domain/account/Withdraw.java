@@ -39,9 +39,9 @@ public class Withdraw {
 
     private String network;
 
-    private String transferType;
+    private Integer transferType;
 
-    private int status;
+    private Integer status;
 
     private String transactionField;
 
