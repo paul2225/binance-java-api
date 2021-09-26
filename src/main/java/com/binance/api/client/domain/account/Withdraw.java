@@ -1,4 +1,4 @@
-package com.binance.api.client.domain.account;
+package com.abot.licensesServer.domain;
 
 import com.binance.api.client.constant.BinanceApiConstants;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -10,115 +10,155 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Withdraw {
 
-  /**
-   * Amount withdrawn.
-   */
-  private String amount;
+    /**
+     * Destination address.
+     */
+    private String address;
 
-  /**
-   * Destination address.
-   */
-  private String address;
+    /**
+     * Amount withdrawn.
+     */
+    private String amount;
 
-  /**
-   * Symbol.
-   */
-  private String asset;
+    private String applyTime;
 
-  private String applyTime;
+    /**
+     * Symbol.
+     */
+    private String coin;
 
-  private String successTime;
+    /**
+     * Id.
+     */
+    private String id;
 
-  /**
-   * Transaction id.
-   */
-  private String txId;
+    /**
+     * Id.
+     */
+    private String withdrawOrderid;
 
-  /**
-   * Id.
-   */
-  private String id;
+    private String network;
 
-  /**
-   * (0:Email Sent,1:Cancelled 2:Awaiting Approval 3:Rejected 4:Processing 5:Failure 6:Completed)
-   */
-  private int status;
+    private String transferType;
 
-  public String getAmount() {
-    return amount;
-  }
+    private int status;
 
-  public void setAmount(String amount) {
-    this.amount = amount;
-  }
+    private String transactionField;
 
-  public String getAddress() {
-    return address;
-  }
+    private String confirmNo;
 
-  public void setAddress(String address) {
-    this.address = address;
-  }
+    /**
+     * Transaction id.
+     */
+    private String txId;
 
-  public String getAsset() {
-    return asset;
-  }
+    public String getAmount() {
+        return amount;
+    }
 
-  public void setAsset(String asset) {
-    this.asset = asset;
-  }
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
 
-  public String getApplyTime() {
-    return applyTime;
-  }
+    public String getAddress() {
+        return address;
+    }
 
-  public void setApplyTime(String applyTime) {
-    this.applyTime = applyTime;
-  }
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-  public String getSuccessTime() {
-    return successTime;
-  }
+    public String getCoin() {
+        return coin;
+    }
 
-  public void setSuccessTime(String successTime) {
-    this.successTime = successTime;
-  }
+    public void setCoin(String coin) {
+        this.coin = coin;
+    }
 
-  public String getTxId() {
-    return txId;
-  }
+    public String getApplyTime() {
+        return applyTime;
+    }
 
-  public void setTxId(String txId) {
-    this.txId = txId;
-  }
+    public void setApplyTime(String applyTime) {
+        this.applyTime = applyTime;
+    }
 
-  public String getId() {
-    return id;
-  }
+    public String getTxId() {
+        return txId;
+    }
 
-  public void setId(String id) {
-    this.id = id;
-  }
+    public void setTxId(String txId) {
+        this.txId = txId;
+    }
 
-  public int getStatus() {
-    return status;
-  }
+    public String getId() {
+        return id;
+    }
 
-  public void setStatus(int status) {
-    this.status = status;
-  }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-  @Override
-  public String toString() {
-    return new ToStringBuilder(this, BinanceApiConstants.TO_STRING_BUILDER_STYLE)
-        .append("amount", amount)
-        .append("address", address)
-        .append("asset", asset)
-        .append("applyTime", applyTime)
-        .append("successTime", successTime)
-        .append("txId", txId)
-        .append("id", id)
-        .append("status", status)
-        .toString();
-  }
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getWithdrawOrderid() {
+        return withdrawOrderid;
+    }
+
+    public void setWithdrawOrderid(String withdrawOrderid) {
+        this.withdrawOrderid = withdrawOrderid;
+    }
+
+    public String getNetwork() {
+        return network;
+    }
+
+    public void setNetwork(String network) {
+        this.network = network;
+    }
+
+    public String getTransferType() {
+        return transferType;
+    }
+
+    public void setTransferType(String transferType) {
+        this.transferType = transferType;
+    }
+
+    public String getTransactionField() {
+        return transactionField;
+    }
+
+    public void setTransactionField(String transactionField) {
+        this.transactionField = transactionField;
+    }
+
+    public String getConfirmNo() {
+        return confirmNo;
+    }
+
+    public void setConfirmNo(String confirmNo) {
+        this.confirmNo = confirmNo;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this, BinanceApiConstants.TO_STRING_BUILDER_STYLE)
+                .append("amount", amount)
+                .append("address", address)
+                .append("coin", coin)
+                .append("applyTime", applyTime)
+                .append("txId", txId)
+                .append("id", id)
+                .append("status", status)
+                .toString();
+    }
 }
+
