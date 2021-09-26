@@ -253,7 +253,7 @@ public class BinanceApiRestClientImpl implements BinanceApiRestClient {
 	}
 
 	@Override
-	public WithdrawHistory getWithdrawHistory(String asset, Integer status, Long startTime, Long endTime) {
+	public List<Withdraw> getWithdrawHistory(String asset, Integer status, Long startTime, Long endTime) {
 		return executeSync(binanceApiService.getWithdrawHistory(asset, null, status, null, null,
 				startTime, endTime, BinanceApiConstants.DEFAULT_RECEIVING_WINDOW, getTimeStamp()));
 	}
