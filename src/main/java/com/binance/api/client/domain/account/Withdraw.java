@@ -124,11 +124,11 @@ public class Withdraw {
         this.network = network;
     }
 
-    public String getTransferType() {
+    public Integer getTransferType() {
         return transferType;
     }
 
-    public void setTransferType(String transferType) {
+    public void setTransferType(Integer transferType) {
         this.transferType = transferType;
     }
 
@@ -161,4 +161,5 @@ public class Withdraw {
                 .toString();
     }
 }
+
 
