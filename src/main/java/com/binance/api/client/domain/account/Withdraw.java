@@ -1,4 +1,4 @@
-package com.abot.licensesServer.domain;
+package com.binance.api.client.domain.account;
 
 import com.binance.api.client.constant.BinanceApiConstants;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
