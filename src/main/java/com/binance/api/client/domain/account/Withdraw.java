@@ -132,11 +132,11 @@ public class Withdraw {
         this.transferType = transferType;
     }
 
-    public String gettransactionFee() {
+    public String getTransactionFee() {
         return transactionFee;
     }
 
-    public void settransactionFee(String transactionFee) {
+    public void setTransactionFee(String transactionFee) {
         this.transactionFee = transactionFee;
     }
 
