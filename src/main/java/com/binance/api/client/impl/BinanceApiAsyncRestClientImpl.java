@@ -223,7 +223,7 @@ public class BinanceApiAsyncRestClientImpl implements BinanceApiAsyncRestClient 
   }
 
   @Override
-  public void getWithdrawHistory(String asset, Integer status, Long startTime, Long endTime, BinanceApiCallback<WithdrawHistory> callback) {
+  public void getWithdrawHistory(String asset, Integer status, Long startTime, Long endTime, BinanceApiCallback<List<Withdraw>> callback) {
     binanceApiService.getWithdrawHistory(asset, null, status, null, null,
             startTime, endTime, BinanceApiConstants.DEFAULT_RECEIVING_WINDOW, System.currentTimeMillis())
         .enqueue(new BinanceApiCallbackAdapter<>(callback));
