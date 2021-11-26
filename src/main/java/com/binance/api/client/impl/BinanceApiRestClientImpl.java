@@ -251,6 +251,11 @@ public class BinanceApiRestClientImpl implements BinanceApiRestClient {
 	public List<Deposit> getDepositHistory(String asset) {
 		return executeSync(binanceApiService.getDepositHistory(asset,null,null,null,null,null, BinanceApiConstants.DEFAULT_RECEIVING_WINDOW,System.currentTimeMillis()));
 	}
+	
+	@Override
+	public List<Deposit> getPayDepositHistory() {
+		return executeSync(binanceApiService.getPayDepositHistory(null,null,null, BinanceApiConstants.DEFAULT_RECEIVING_WINDOW,System.currentTimeMillis()));
+	}
 
 	@Override
 	public List<Withdraw> getWithdrawHistory(String asset, Integer status, Long startTime, Long endTime) {
