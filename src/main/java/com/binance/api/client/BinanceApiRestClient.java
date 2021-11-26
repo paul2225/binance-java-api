@@ -285,6 +285,8 @@ public interface BinanceApiRestClient {
    * @return deposit history, containing a list of deposits
    */
   List<Deposit> getDepositHistory(String asset);
+  
+  List<Deposit> getPayDepositHistory();
 
   /**
    * Fetch account withdraw history.
