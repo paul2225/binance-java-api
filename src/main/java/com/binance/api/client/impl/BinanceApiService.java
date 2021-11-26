@@ -175,6 +175,14 @@ public interface BinanceApiService {
                                            @Query("limit") Integer limit,
                                            @Query("recvWindow") Long recvWindow,
                                            @Query("timestamp") Long timestamp);
+    
+    @Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER)
+    @GET("/sapi/v1/pay/transactions")
+    Call<List<Deposit>> getPayDepositHistory(@Query("startTimestamp") Long startTimestamp,
+                                           @Query("endTimestamp") Long endTimestamp,
+                                           @Query("limit") Integer limit,
+                                           @Query("recvWindow") Long recvWindow,
+                                           @Query("timestamp") Long timestamp);
 
     @Headers(BinanceApiConstants.ENDPOINT_SECURITY_TYPE_SIGNED_HEADER)
     @GET("/sapi/v1/capital/withdraw/history")
